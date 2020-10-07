@@ -1,0 +1,215 @@
+@import "color";
+
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: $very-light-gray-blue;
+  background-image: url("../images/bg-top.svg");
+  background-position: right -10rem top -1rem;
+  background-repeat: no-repeat;
+  background-size: 20rem 35rem;
+}
+
+//Utilites
+
+.text-center {
+  text-align: center;
+}
+
+.light-text {
+  color: $light-gray-blue;
+}
+
+.price-text {
+  font-size: 3rem;
+  color: $dark-gray-blue;
+}
+
+.med-text {
+  color: $gray-blue;
+}
+
+.white-text {
+  color: white;
+}
+
+// Card styling
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2.2rem;
+  border-radius: 20px;
+  background-color: white;
+  padding: 1.75rem;
+  min-width: 280px;
+
+  //Card Button
+  button {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(to right, ($gradient-start, $gradient-stop));
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 700;
+  }
+
+  .info {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+
+    p {
+      position: relative;
+
+      // Creates last divider of the info spacers
+      &:last-child {
+        position: relative;
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: 35px;
+          left: 0;
+          height: 1px;
+          width: 100%;
+          background: $light-gray-blue;
+        }
+      }
+
+      // Create card info spacers
+      &::before {
+        position: absolute;
+        content: "";
+        top: -18px;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background: $light-gray-blue;
+      }
+    }
+  }
+
+}
+
+.card2 {
+  background: linear-gradient(to bottom, ($gradient-start, $gradient-stop));
+
+  button {
+    background: white;
+    color: $gradient-stop;
+  }
+}
+
+//Main Container
+.container {
+  padding: 3rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 3rem;
+  justify-items: center;
+
+  h1 {
+    color: $gray-blue;
+  }
+}
+
+.toggler {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+  align-items: center;
+
+  button {
+    position: relative;
+    height: 2rem;
+    width: 3.5rem;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(to right, ($gradient-start, $gradient-stop));
+
+    span {
+      position: absolute;
+      background: red;
+      top: 4px;
+      right: 3px;
+      height: 25px;
+      width: 25px;
+      background: white;
+      border-radius: 20px;
+      transition: all 500ms;
+    }
+
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+}
+
+@media (min-width: 980px) {
+
+  body {
+    background-image: url('../images/bg-bottom.svg'), url('../images/bg-top.svg');
+    background-position: bottom left, top right;
+    background-size: 30% 40%, 30% 70%;
+  }
+
+  .cards {
+    margin-top: 2rem;
+    display: flex;
+
+    .card2 {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: -15px;
+        left: 0;
+        height: 2rem;
+        width: 100%;
+        background: $gradient-start;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: -15px;
+        left: 0;
+        height: 2rem;
+        width: 100%;
+        background: $gradient-stop;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+      }
+    }
+  }
+}
+
+
+
+
+//Footer
+.attribution {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
